@@ -295,21 +295,21 @@ public class Utils {
 		bw.close();
 	}
 
-//	public static String lerArquivo(String file) {
-//		File path = new File(file);
-//		String texto = "";
-//		try {
-//			FileReader fileReader = new FileReader("./src/test/resources/login/" + path);
-//			BufferedReader bufferedReader = new BufferedReader(fileReader);
-//			String linha = "";
-//			while ((linha = bufferedReader.readLine()) != null) {
-//				texto += linha;
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return texto;
-//	}
+	public static String lerArquivo(String file) {
+		File path = new File(file);
+		String texto = "";
+		try {
+			FileReader fileReader = new FileReader("./src/test/resources/login/" + path);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			String linha = "";
+			while ((linha = bufferedReader.readLine()) != null) {
+				texto += linha;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return texto;
+	}
 
 	public static boolean verificarArquivo(String path) {
 		File file = new File(path);
@@ -332,33 +332,33 @@ public class Utils {
 		return retorno;
 	}
 
-//	public static ArrayList<String> lerExcel(String path) throws IOException {
-//		ArrayList<String> list = new ArrayList<String>();
-//		// Recuperando o Arquivo
-//		@Cleanup
-//		FileInputStream file = new FileInputStream(path);
-//		XSSFWorkbook workbook = new XSSFWorkbook(file);
-//		// Setando a Aba
-//		XSSFSheet sheet = workbook.getSheetAt(0);
-//		// Setando as linhas
-//		List<XSSFRow> rows = (List<XSSFRow>) toList(sheet.iterator());
-//
-//		rows.forEach(row -> {
-//			// setando as C�lulas
-//			List<XSSFCell> cells = (List<XSSFCell>) toList(row.cellIterator());
-//			list.add(cells.get(0).getStringCellValue());
-//		});
-//		return list;
-//	}
+	public static ArrayList<String> lerExcel(String path) throws IOException {
+		ArrayList<String> list = new ArrayList<String>();
+		// Recuperando o Arquivo
+		@Cleanup
+		FileInputStream file = new FileInputStream(path);
+		XSSFWorkbook workbook = new XSSFWorkbook(file);
+		// Setando a Aba
+		XSSFSheet sheet = workbook.getSheetAt(0);
+		// Setando as linhas
+		List<XSSFRow> rows = (List<XSSFRow>) toList(sheet.iterator());
+
+		rows.forEach(row -> {
+			// setando as C�lulas
+			List<XSSFCell> cells = (List<XSSFCell>) toList(row.cellIterator());
+			list.add(cells.get(0).getStringCellValue());
+		});
+		return list;
+	}
 
 	public static void deleteFile(String file) {
 		File af = new File(file);
 		af.delete();
 	}
 
-//	private static List<?> toList(Iterator<?> iterator) {
-//		return IteratorUtils.toList(iterator);
-//	}
+	private static List<?> toList(Iterator<?> iterator) {
+		return IteratorUtils.toList(iterator);
+	}
 
 	public static boolean elementoExisteCss(String elemento) {
 		boolean existe = false;
